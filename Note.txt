@@ -12,6 +12,7 @@ PS C:\react> npx create-react-app RTKQuery-crud --template redux-typescript
 PS C:\react\rtk-query-crud> npm install
 PS C:\react\rtk-query-crud> npm i react-router-dom react-toastify
 
+PS C:\react\rtk-query-crud> npm run start
 PS C:\react\rtk-query-crud> npm run server
 Go to http://localhost:5000/contacts to confirm we can retrieve the data.
 
@@ -19,3 +20,5 @@ http://localhost:3000/
 http://localhost:3000/addContact
 http://localhost:3000/editContact/1
 http://localhost:3000/Info/1
+
+Very strange that the contactApi need to create under tsx format. If I created it under ts format, intellij intellisense will not work
