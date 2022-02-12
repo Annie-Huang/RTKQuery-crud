@@ -14,3 +14,8 @@ PS C:\react\rtk-query-crud> npm i react-router-dom react-toastify
 
 PS C:\react\rtk-query-crud> npm run server
 Go to http://localhost:5000/contacts to confirm we can retrieve the data.
+
+http://localhost:3000/
+http://localhost:3000/addContact
+http://localhost:3000/editContact/1
+http://localhost:3000/Info/1
