@@ -10,3 +10,4 @@ https://redux-toolkit.js.org/introduction/getting-started
 
 PS C:\react> npx create-react-app RTKQuery-crud --template redux-typescript
 PS C:\react\rtk-query-crud> npm install
+PS C:\react\rtk-query-crud> npm i react-router-dom react-toastify
