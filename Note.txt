@@ -1,0 +1,12 @@
+Learn Complete Redux-Toolkit & RTK Query with React in One Video | Redux-Toolkit RTK Query
+(https://www.youtube.com/watch?v=_R5XOF_MDmU&t=3s)
+
+https://github.com/trickjsprogram/RTKQuery-crud
+https://github.com/Annie-Huang/rtk-query-crud
+
+https://redux-toolkit.js.org/introduction/getting-started
+
+=================================================================================================
+
+PS C:\react> npx create-react-app RTKQuery-crud --template redux-typescript
+PS C:\react\rtk-query-crud> npm install
