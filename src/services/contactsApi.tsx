@@ -17,8 +17,18 @@ export const contactsApi = createApi({
         body: contact,
       }),
     }),
+    deleteContact: builder.mutation<void, string>({
+      query: (id) => ({
+        url: `/contacts/${id}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
 // other examples I follow just export contactsApi and get the hook in the component files that use it.
-export const { useContactsQuery, useAddContactMutation } = contactsApi;
+export const {
+  useContactsQuery,
+  useAddContactMutation,
+  useDeleteContactMutation,
+} = contactsApi;
