@@ -25,6 +25,8 @@ const Home = () => {
     return <h3>Loading...</h3>;
   }
 
+  // Official example doesn't use async await, it instead do then function:
+  // const handleAddPost = () => addPost(post).then(() => setPost(initialValue));
   const handleDelete = async (id: string) => {
     if (
       window.confirm('Are you sure that you wanted to delete that contact?')

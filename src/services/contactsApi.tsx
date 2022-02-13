@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Contact } from '../model/contact.model';
 
+// Official example have this file as ts extension:
+// https://codesandbox.io/s/rtk-query-demo-lbp7n?from-embed=&file=/src/app/services/counter.ts
 export const contactsApi = createApi({
   reducerPath: 'contactsApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),

@@ -7,6 +7,9 @@ https://github.com/Annie-Huang/rtk-query-crud
 https://redux-toolkit.js.org/introduction/getting-started
 https://redux-toolkit.js.org/rtk-query/usage/queries#frequently-used-query-hook-return-values
 
+Redux-toolkit-query official example:
+https://codesandbox.io/s/rtk-query-demo-lbp7n?from-embed
+
 =================================================================================================
 
 PS C:\react> npx create-react-app RTKQuery-crud --template redux-typescript
