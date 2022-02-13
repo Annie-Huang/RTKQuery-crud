@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Info.css';
 import { useContactQuery } from '../services/contactsApi';
 import { toast } from 'react-toastify';
@@ -15,8 +15,33 @@ const Info = () => {
   }, [error]);
 
   return (
-    <div>
-      <h2>Info</h2>
+    <div style={{ marginTop: '150px' }}>
+      <div className='card'>
+        <div className='card-header'>
+          <p>User Contact Detail</p>
+        </div>
+        <div className='container'>
+          <strong>ID:</strong>
+          <span>{id}</span>
+          <br />
+          <br />
+          <strong>Name:</strong>
+          <span>{data?.name}</span>
+          <br />
+          <br />
+          <strong>Email:</strong>
+          <span>{data?.email}</span>
+          <br />
+          <br />
+          <strong>Contact:</strong>
+          <span>{data?.contact}</span>
+          <br />
+          <br />
+          <Link to='/'>
+            <button className='btn btn-edit'>Go Back</button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
