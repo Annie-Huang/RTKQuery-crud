@@ -5,6 +5,7 @@ https://github.com/trickjsprogram/RTKQuery-crud
 https://github.com/Annie-Huang/rtk-query-crud
 
 https://redux-toolkit.js.org/introduction/getting-started
+https://redux-toolkit.js.org/rtk-query/usage/queries#frequently-used-query-hook-return-values
 
 =================================================================================================
 
