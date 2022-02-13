@@ -13,8 +13,8 @@ const AddEdit = () => {
   const { name, email, contact } = formValue;
   const navigate = useNavigate();
 
-  const handleInputChange = (e) => {};
-  const handleSubmit = (e) => {};
+  const handleInputChange = (e: any) => {};
+  const handleSubmit = (e: any) => {};
 
   return (
     <div style={{ marginTop: '100px' }}>
@@ -36,6 +36,25 @@ const AddEdit = () => {
           value={name}
           onChange={handleInputChange}
         />
+        <label htmlFor='email'>Email</label>
+        <input
+          type='email'
+          name='email'
+          id='email'
+          placeholder='Enter Email...'
+          value={email}
+          onChange={handleInputChange}
+        />
+        <label htmlFor='contact'>Contact</label>
+        <input
+          type='number'
+          name='contact'
+          id='contact'
+          placeholder='Enter Contact no...'
+          value={contact}
+          onChange={handleInputChange}
+        />
+        <input type='submit' value='Add' />
       </form>
     </div>
   );
