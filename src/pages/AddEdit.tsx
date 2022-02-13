@@ -17,11 +17,18 @@ const AddEdit = () => {
   const [formValue, setFormValue] = useState(initialState);
   const [editMode, setEditMode] = useState(false);
   const [addContact] = useAddContactMutation();
-  const { data, error } = useContactQuery();
   const { name, email, contact } = formValue;
   const navigate = useNavigate();
 
   const { id } = useParams();
+  const { data, error } = useContactQuery(id!);
+
+  useEffect(() => {
+    if (error && id) {
+      toast.error('Something went wrong');
+    }
+  }, [error]);
+
   useEffect(() => {
     if (id) {
       setEditMode(true);
