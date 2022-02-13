@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AddEdit.css';
+import { toast } from 'react-toastify';
+import { useAddContactMutation } from '../services/contactsApi';
 
 const initialState = {
   name: '',
@@ -10,11 +12,26 @@ const initialState = {
 
 const AddEdit = () => {
   const [formValue, setFormValue] = useState(initialState);
+  const [addContact] = useAddContactMutation();
   const { name, email, contact } = formValue;
   const navigate = useNavigate();
 
-  const handleInputChange = (e: any) => {};
-  const handleSubmit = (e: any) => {};
+  const handleInputChange = (e: any) => {
+    // Very smart way to set value to the correct field, I never thought of this...
+    let { name, value } = e.target;
+    setFormValue({ ...formValue, [name]: value });
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    if (!name && !email && !contact) {
+      toast.error('Please provide value into each input field');
+    } else {
+      await addContact(formValue);
+      navigate('/');
+      toast.success('Contact Added Successfully');
+    }
+  };
 
   return (
     <div style={{ marginTop: '100px' }}>
