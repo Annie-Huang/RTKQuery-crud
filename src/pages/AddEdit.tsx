@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import './AddEdit.css';
 import { toast } from 'react-toastify';
-import { useAddContactMutation } from '../services/contactsApi';
+import {
+  useAddContactMutation,
+  useContactQuery,
+} from '../services/contactsApi';
 
 const initialState = {
   name: '',
@@ -12,9 +15,24 @@ const initialState = {
 
 const AddEdit = () => {
   const [formValue, setFormValue] = useState(initialState);
+  const [editMode, setEditMode] = useState(false);
   const [addContact] = useAddContactMutation();
+  const { data, error } = useContactQuery();
   const { name, email, contact } = formValue;
   const navigate = useNavigate();
+
+  const { id } = useParams();
+  useEffect(() => {
+    if (id) {
+      setEditMode(true);
+      if (data) {
+        setFormValue({ ...data });
+      }
+    } else {
+      setEditMode(false);
+      setFormValue({ ...initialState });
+    }
+  }, [id, data]);
 
   const handleInputChange = (e: any) => {
     // Very smart way to set value to the correct field, I never thought of this...
