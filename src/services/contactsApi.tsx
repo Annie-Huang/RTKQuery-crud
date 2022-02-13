@@ -15,6 +15,10 @@ export const contactsApi = createApi({
       query: () => '/contacts',
       providesTags: ['Contact'],
     }),
+    contact: builder.query<Contact, void>({
+      query: (id) => `/contact/${id}`,
+      providesTags: ['Contact'],
+    }),
     addContact: builder.mutation<{}, Contact>({
       query: (contact) => ({
         url: '/contacts',
@@ -36,6 +40,7 @@ export const contactsApi = createApi({
 // other examples I follow just export contactsApi and get the hook in the component files that use it.
 export const {
   useContactsQuery,
+  useContactQuery,
   useAddContactMutation,
   useDeleteContactMutation,
 } = contactsApi;

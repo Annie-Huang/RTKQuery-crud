@@ -32,6 +32,7 @@ const Home = () => {
       window.confirm('Are you sure that you wanted to delete that contact?')
     ) {
       await deleteContact(id);
+      toast.success('Contact Deleted Successfully');
     }
   };
 
