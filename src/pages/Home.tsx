@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useContactsQuery } from '../services/contactsApi';
+import './Home.css';
 
 const Home = () => {
   // isFetching - When true, indicates that the query is currently fetching, but might have data from an earlier request. This will be true for both the first request fired off, as well as subsequent requests.
@@ -20,7 +21,7 @@ const Home = () => {
   }
 
   return (
-    <div style={{ marginTop: '100px' }}>
+    <div style={{ marginTop: '100px', display: 'grid' }}>
       <Link to='/addContact'>
         <button className='btn btn-add'>Add Contact</button>
       </Link>
