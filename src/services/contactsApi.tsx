@@ -3,6 +3,8 @@ import { Contact } from '../model/contact.model';
 
 // Official example have this file as ts extension:
 // https://codesandbox.io/s/rtk-query-demo-lbp7n?from-embed=&file=/src/app/services/counter.ts
+
+// You can have multiple providesTags with the same values.
 export const contactsApi = createApi({
   reducerPath: 'contactsApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
@@ -15,8 +17,8 @@ export const contactsApi = createApi({
       query: () => '/contacts',
       providesTags: ['Contact'],
     }),
-    contact: builder.query<Contact, void>({
-      query: (id) => `/contact/${id}`,
+    contact: builder.query<Contact, string>({
+      query: (id) => `/contacts/${id}`,
       providesTags: ['Contact'],
     }),
     addContact: builder.mutation<{}, Contact>({
