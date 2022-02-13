@@ -26,6 +26,7 @@ export const contactsApi = createApi({
         url: `/contacts/${id}`,
         method: 'DELETE',
       }),
+      invalidatesTags: ['Contact'],
     }),
   }),
 });
