@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import {
   useAddContactMutation,
   useContactQuery,
+  useUpdateContactMutation,
 } from '../services/contactsApi';
 
 const initialState = {
@@ -14,9 +15,12 @@ const initialState = {
 };
 
 const AddEdit = () => {
+  // You cannot form a type to formValue, because formValue can include id if it's retrieve from the DB.
   const [formValue, setFormValue] = useState(initialState);
   const [editMode, setEditMode] = useState(false);
   const [addContact] = useAddContactMutation();
+  const [updateContact] = useUpdateContactMutation();
+
   const { name, email, contact } = formValue;
   const navigate = useNavigate();
 
@@ -33,6 +37,8 @@ const AddEdit = () => {
     if (id) {
       setEditMode(true);
       if (data) {
+        // When it's in edit mode, the data getting from server includes the id,
+        // that is why when you update the the contact the id will auto be sent as part of the formValue
         setFormValue({ ...data });
       }
     } else {
@@ -52,9 +58,17 @@ const AddEdit = () => {
     if (!name && !email && !contact) {
       toast.error('Please provide value into each input field');
     } else {
-      await addContact(formValue);
-      navigate('/');
-      toast.success('Contact Added Successfully');
+      if (editMode) {
+        console.log('formValue=', formValue);
+        await updateContact(formValue);
+        navigate('/');
+        setEditMode(false);
+        toast.success('Contact Updated Successfully');
+      } else {
+        await addContact(formValue);
+        navigate('/');
+        toast.success('Contact Added Successfully');
+      }
     }
   };
 
@@ -96,7 +110,7 @@ const AddEdit = () => {
           value={contact}
           onChange={handleInputChange}
         />
-        <input type='submit' value='Add' />
+        <input type='submit' value={editMode ? 'Update' : 'Add'} />
       </form>
     </div>
   );
