@@ -9,6 +9,12 @@ const Home = () => {
   // isLoading - When true, indicates that the query is currently loading for the first time, and has no data yet. This will be true for the first request fired off, but not for subsequent requests.
   const { data, isLoading, error } = useContactsQuery();
 
+  useEffect(() => {
+    if (error) {
+      toast.error('Something went wrong');
+    }
+  }, [error]);
+
   if (isLoading) {
     return <h3>Loading...</h3>;
   }

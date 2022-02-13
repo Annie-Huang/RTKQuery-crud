@@ -6,7 +6,9 @@ export const contactsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
   endpoints: (builder) => ({
     contacts: builder.query<Contact[], void>({
-      query: () => '/contacts',
+      // Test error
+      query: () => '/conta',
+      // query: () => '/contacts',
     }),
   }),
 });
